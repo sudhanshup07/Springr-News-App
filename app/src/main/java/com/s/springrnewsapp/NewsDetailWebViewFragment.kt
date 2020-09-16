@@ -1,6 +1,7 @@
 package com.s.springrnewsapp
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +35,9 @@ class NewsDetailWebViewFragment : Fragment() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.loadUrl(args.newsUrl)
         binding.webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView, url: String) {
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
                 binding.webViewProgressBar.visibility = View.GONE
             }
         }
