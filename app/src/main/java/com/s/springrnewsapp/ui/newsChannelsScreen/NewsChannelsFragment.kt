@@ -1,5 +1,6 @@
 package com.s.springrnewsapp.ui.newsChannelsScreen
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.s.springrnewsapp.MarginItemDecoration
 import com.s.springrnewsapp.databinding.FragmentNewsChannelsBinding
+import com.s.springrnewsapp.network.NewsApi
 
 class NewsChannelsFragment : Fragment() {
 
@@ -29,10 +31,20 @@ class NewsChannelsFragment : Fragment() {
             viewModel.displayNewsSourceDetails(it)
         })
 
-        viewModel.navigateToSelectedNewsSource.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToSelectedNewsSource.observe(viewLifecycleOwner, {
             if(it!= null){
                 findNavController().navigate(NewsChannelsFragmentDirections.actionNewsChannelsFragmentToNewsFragment(it))
                 viewModel.displayNewsSourceDetailsComplete()
+            }
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, {
+            if(it == NewsApiStatus.DONE){
+                binding.newsChannelsProgressBar.visibility = View.GONE
+            }else if(it == NewsApiStatus.LOADING){
+                binding.newsChannelsProgressBar.visibility = View.VISIBLE
+            }else{
+                binding.newsChannelsProgressBar.visibility = View.GONE
             }
         })
 

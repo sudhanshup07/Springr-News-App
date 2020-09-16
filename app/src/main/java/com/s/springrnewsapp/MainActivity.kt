@@ -22,4 +22,12 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.newsChannelsFragment))
         binding.toolbar.setupWithNavController(navController,appBarConfiguration)
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
 }

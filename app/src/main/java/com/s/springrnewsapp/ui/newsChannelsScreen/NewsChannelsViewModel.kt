@@ -40,10 +40,15 @@ class NewsChannelsViewModel:ViewModel() {
 
             val getNewsChannelsDeferred = NewsApi.retrofitService.getSourcesAsync("en", API_KEY)
             try {
+                _status.value = NewsApiStatus.LOADING
+
                 val result = getNewsChannelsDeferred.await()
                 _newsSources.value = result.sources
-            } catch (e: Exception){
 
+                _status.value = NewsApiStatus.DONE
+
+            } catch (e: Exception){
+                _status.value = NewsApiStatus.ERROR
             }
         }
     }

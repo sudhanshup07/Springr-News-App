@@ -27,5 +27,33 @@
         <argument
             android:name="newsSource"
             app:argType="com.s.springrnewsapp.model.NewsSource" />
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.s.springrnewsapp.ui.newsDetailScreen.NewsDetailFragment"
+        android:label="News Detail"
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="newsArticle"
+            app:argType="com.s.springrnewsapp.model.NewsArticle" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_newsDetailWebViewFragment"
+            app:destination="@id/newsDetailWebViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailWebViewFragment"
+        android:name="com.s.springrnewsapp.NewsDetailWebViewFragment"
+        android:label="News on Web"
+        tools:layout="@layout/fragment_news_detail_web_view">
+        <argument
+            android:name="newsUrl"
+            app:argType="string" />
     </fragment>
 </navigation>

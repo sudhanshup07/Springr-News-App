@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newsDetailScreen.NewsDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/news_article_description_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/news_detail_imageView"
+            app:layout_constraintStart_toStartOf="@+id/news_detail_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/share_imageView" />
+
+        <TextView
+            android:id="@+id/news_article_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20sp"
+            android:padding="2dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/save_imageButton"
+            app:layout_constraintStart_toStartOf="@+id/save_imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/save_imageButton" />
+
+        <ImageView
+            android:id="@+id/share_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="@+id/news_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/news_article_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_imageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/save_image"
+            android:theme="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/news_detail_imageView" />
+
+        <TextView
+            android:id="@+id/news_detail_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="2dp"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@+id/news_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/news_article_title" />
+
+        <ImageView
+            android:id="@+id/news_detail_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/read_more_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/read_more"
+            android:textColor="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="@+id/news_article_description_tv"
+            app:layout_constraintTop_toBottomOf="@+id/news_article_description_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+</layout>

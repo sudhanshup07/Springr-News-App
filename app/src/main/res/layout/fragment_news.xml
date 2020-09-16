@@ -28,5 +28,15 @@
         app:spanCount="1"
         tools:listitem="@layout/news_article_item" />
 
+    <ProgressBar
+        android:id="@+id/news_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/news_article_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/news_article_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/news_article_recyclerView"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -35,12 +35,16 @@ class NewsViewModel(val sourceId:String):ViewModel() {
     private fun getNewsArticles() {
         coroutineScope.launch {
 
+            _status.value = NewsApiStatus.LOADING
+
             val getNewsArticleDeferred = NewsApi.retrofitService.getNewsArticlesAsync(sourceId, API_KEY)
             try {
                 val result = getNewsArticleDeferred.await()
                 _newsArticles.value = result.articles
-            } catch (e: Exception){
 
+                _status.value = NewsApiStatus.DONE
+            } catch (e: Exception){
+                _status.value = NewsApiStatus.ERROR
             }
         }
     }
